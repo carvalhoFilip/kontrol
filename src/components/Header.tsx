@@ -10,7 +10,7 @@ export function Header() {
     <header className="header">
       <div className="header-left">
         <Link href="/" className="logo">
-          kontrol.
+          KONTROL.
         </Link>
         <p className="tagline">training club — built for discipline</p>
       </div>
