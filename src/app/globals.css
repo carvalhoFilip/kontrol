@@ -266,14 +266,9 @@ img {
   align-items: flex-end;
   justify-content: flex-end;
   overflow: hidden;
-}
-
-.k-hero-mockup::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.06), transparent 55%);
-  pointer-events: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .k-hero-mockup img {
@@ -282,12 +277,16 @@ img {
   max-height: 88vh;
   object-fit: cover;
   object-position: center top;
+  background: transparent;
+  border: none;
 }
 
 .k-hero-mockup--logo {
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 0;
+  background: transparent;
+  border: none;
 }
 
 .k-hero-mockup--logo img {
