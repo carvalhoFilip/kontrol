@@ -1,13 +1,30 @@
 import { NextResponse } from 'next/server';
-import { getDropStatus } from '@/lib/drop';
-
-export const revalidate = 60;
+import { DROP } from '@/lib/drop';
+import {
+  DROP_GRID_PRODUCTS,
+  SIZES,
+  isProductSoldOut,
+} from '@/data/products';
 
 export async function GET() {
-  const status = getDropStatus();
-  return NextResponse.json(status, {
-    headers: {
-      'Cache-Control': 's-maxage=60, stale-while-revalidate=120',
-    },
+  const models = DROP_GRID_PRODUCTS.map((product) => ({
+    slug: product.slug,
+    label: product.slug.includes('dryfit')
+      ? 'DRYFIT'
+      : product.slug.includes('icarus')
+        ? 'ICARUS'
+        : product.code,
+    soldOut: isProductSoldOut(product),
+    sizes: Object.fromEntries(
+      SIZES.map((size) => [size, (product.stockBySize?.[size] ?? 0) > 0])
+    ),
+  }));
+
+  const closed = DROP_GRID_PRODUCTS.every(isProductSoldOut);
+
+  return NextResponse.json({
+    code: DROP.code,
+    closed,
+    models,
   });
 }

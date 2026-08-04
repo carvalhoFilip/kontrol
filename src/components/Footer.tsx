@@ -16,18 +16,18 @@ export function Footer() {
           </a>
         </div>
         <div className="footer-col">
+          <p className="footer-legal">
+            {/* TODO: razão social e CNPJ */}
+            KONTROL TRAINING CLUB
+          </p>
+        </div>
+        <div className="footer-col">
           <Link href="/trocas" className="footer-link">
             trocas e devoluções
           </Link>
           <Link href="/privacidade" className="footer-link">
             política de privacidade
           </Link>
-        </div>
-        <div className="footer-col">
-          <p className="footer-legal">
-            {/* TODO: razão social e CNPJ */}
-            KONTROL TRAINING CLUB
-          </p>
         </div>
       </div>
       <p className="footer-bottom">

@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
 import { upsertSubscriber, type SubscriberSource } from '@/lib/subscribers';
-import { DROP } from '@/lib/drop';
+import { NOTIFY_EMAIL } from '@/lib/drop';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SOURCES: SubscriberSource[] = ['icarus', 'tc12'];
-const NOTIFY_TO = DROP.notifyEmail;
+const NOTIFY_TO = NOTIFY_EMAIL;
 
 async function forwardToInbox(email: string, source: SubscriberSource) {
   const subject = `[KONTROL] Novo cadastro — ${source.toUpperCase()}`;

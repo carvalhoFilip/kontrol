@@ -1,17 +1,13 @@
 'use client';
 
-import { useDropStatus } from '@/hooks/useDropStatus';
-import type { DropStatus } from '@/lib/drop';
+import { DROP_GRID_PRODUCTS, isProductSoldOut } from '@/data/products';
 
 type Props = {
-  initialStatus: DropStatus;
   mockupSrc: string;
 };
 
-export function Hero({ initialStatus, mockupSrc }: Props) {
-  const { status } = useDropStatus(initialStatus);
-  const remaining = status?.remaining ?? initialStatus.remaining;
-  const soldOut = remaining === 0;
+export function Hero({ mockupSrc }: Props) {
+  const soldOut = DROP_GRID_PRODUCTS.every(isProductSoldOut);
 
   function scrollToProduct() {
     const el = document.getElementById('drop');
