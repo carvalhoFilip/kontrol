@@ -30,7 +30,7 @@ export function DropStatus() {
         <div className="drop-status-col">
           <p className="k-label">STATUS DO DROP</p>
           <p className="drop-status-headline">
-            {closed ? 'ENCERRADO' : 'ABERTO ATÉ ACABAR'}
+            {closed ? 'ENCERRADO' : 'ABERTO'}
           </p>
           <p className="drop-status-copy">
             {closed
